@@ -3,6 +3,11 @@ package com.github.kai9026.dni.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * Check that the string conforms to the format of the DNI document.
+ * 
+ * @author Arkaitz Lázaro
+ */
 public class DniValidator implements ConstraintValidator<Dni, String> {
 
 	private static final Character[] letters = new Character[] {

@@ -1,4 +1,4 @@
-package com.github.kai9026.dni.validator;
+package io.github.kai9026.dni.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

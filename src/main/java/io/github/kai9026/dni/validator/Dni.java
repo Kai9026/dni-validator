@@ -1,4 +1,4 @@
-package com.github.kai9026.dni.validator;
+package io.github.kai9026.dni.validator;
 
 
 import javax.validation.Constraint;
@@ -17,6 +17,12 @@ import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * Validate that the annotated string is a valid DNI (Documento Nacional de Identidad)
+ * 
+ * @author Arkaitz Lázaro
+ * 
+ */
 @Documented
 @Constraint(validatedBy = DniValidator.class)
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})

@@ -1,0 +1,17 @@
+name: Merge develop to master
+on:
+  registry_package:
+    types: [published]
+jobs:
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Merge develop -> master
+        uses: devmasx/merge-branch@v1.3.0
+        with:
+          type: now
+          head_to_merge: develop
+          target_branch: master
+          github_token: ${{ github.token }}

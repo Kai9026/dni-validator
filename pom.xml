@@ -19,6 +19,7 @@
     <maven-compiler.version>3.8.1</maven-compiler.version>
     <maven-surefire.version>2.22.2</maven-surefire.version>
     <maven-failsafe.version>2.22.2</maven-failsafe.version>
+    <snyk.version>1.2.5</snyk.version>
   </properties>
 
   <dependencies>
@@ -28,23 +29,18 @@
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>${hibernate-validator.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>jakarta.el</artifactId>
       <version>3.0.3</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-
 
     <!-- Test dependencies -->
     <dependency>
@@ -87,6 +83,31 @@
           <argLine>
             --illegal-access=permit
           </argLine>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.snyk</groupId>
+        <artifactId>snyk-maven-plugin</artifactId>
+        <version>${snyk.version}</version>
+        <executions>
+          <execution>
+            <id>snyk-test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>snyk-monitor</id>
+            <phase>install</phase>
+            <goals>
+              <goal>monitor</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <apiToken>${SNYK_API_TOKEN}</apiToken>
+          <failOnSeverity>medium</failOnSeverity>
         </configuration>
       </plugin>
     </plugins>

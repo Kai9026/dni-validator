@@ -12,7 +12,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <junit.version>5.6.0</junit.version>
-    <hibernate-validator.version>6.1.6.Final</hibernate-validator.version>
+    <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
     <lombok.version>1.18.2</lombok.version>
     <log4j.version>2.13.3</log4j.version>
     <jakarta-el.version>3.0.3</jakarta-el.version>
